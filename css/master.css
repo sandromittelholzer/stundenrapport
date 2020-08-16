@@ -1,0 +1,865 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: 'Helvetica', sans-serif;
+}
+
+:focus {
+  outline: none;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #B3B4B9;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 300;
+  color: #B3B4B9;
+}
+
+input {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+input:disabled {
+  color: #000;
+  -webkit-text-fill-color: #000; /* Deaktivierte Eingabefelder (Safari) */
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+  height: 45px;
+  padding: 0 25px;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  background-color: #fff; /* Firefox */
+}
+
+input:not([type="checkbox"])::placeholder {
+  color: #B3B4B9;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid #2D8EFF !important;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #000;
+  resize: none;
+  padding: 25px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  display: block;
+}
+
+button {
+  height: 45px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #B3B4B9;
+  padding: 0 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #CCC;
+  background-color: #fff;
+}
+
+.positive {
+  color: #2D8EFF;
+  border: 1px solid #2D8EFF;
+}
+
+.negative {
+  color: #F2380F;
+  border: 1px solid #F2380F;
+}
+
+button:disabled {
+  color: #E0E0E0;
+  border: 1px solid #E0E0E0;
+}
+
+input[type="checkbox"] {
+ width: 20px;
+ height: 20px;
+ appearance: none;
+ -webkit-appearance: none; /* Grössenänderung zulassen */
+ background-color: #fff;
+ display: flex;
+ border: 1px solid #B3B4B9;
+ border-radius: 5px;
+ cursor: pointer;
+ position: relative;
+}
+
+input[type="checkbox"]:checked {
+ border-color: #3680F8;
+}
+
+input[type="checkbox"]:checked::after {
+ content: '';
+ width: 10px;
+ height: 10px;
+ background: #3680F8;
+ position: absolute;
+ top: 50%;
+ right: 50%;
+ bottom: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ border-radius: 2px;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.grid {
+  display: grid !important;
+}
+
+.error-input {
+  font-size: 14px;
+  font-weight: 300;
+  color: #F2380F;
+  margin-top: 10px;
+  padding-left: 25px;
+  display: block;
+  position: relative;
+}
+
+.error-input::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: calc((16px - (5px / 2)) / 2);
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #ff0404;
+  border-radius: 50%;
+}
+
+.error-color {
+  background-color: #F2380F !important;
+}
+
+/* DropDown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown input {
+  width: 100% !important;
+  color: #B3B4B9;
+  -webkit-text-fill-color: #B3B4B9; /* Deaktivierte Eingabefelder (Safari) */
+  cursor: pointer;
+}
+
+.dropdown ul {
+  width: 100%;
+  position: absolute;
+  top: 55px;
+  padding: 10px;
+  list-style: none;
+  overflow: auto;
+  background-color: #fff;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown ul li {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #B3B4B9;
+  margin: 0 auto;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+html, body {
+  height: 100%;
+}
+
+.log-in {
+  width: 450px;
+  width: 450px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.log-in input {
+  width: 100%;
+  display: block;
+}
+
+.log-in input:nth-child(n+2) {
+  margin-top: 25px;
+}
+
+.log-in button {
+  border-radius: calc(45px / 2);
+  margin-top: 100px;
+  width: 100%;
+  color: #fff;
+  background-color: #2D8EFF;
+  border: none;
+}
+
+.log-in p {
+  margin: 15px 0 50px;
+}
+
+.header {
+  height: 65px;
+  border-bottom: 1px solid #CCC;
+}
+
+.side-navigation {
+  width: 305px;
+  height: calc(100% - 65px);
+  float: left;
+}
+
+.side-navigation h2 {
+  margin: 50px 0 35px 35px;
+}
+
+.side-navigation h3 {
+  margin: 0 0 0 35px;
+}
+
+.side-navigation ul {
+  list-style-type: none;
+}
+
+.side-navigation ul li {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin: calc(30px - (45px - 18px)) 0;
+  padding-left: 35px;
+  position: relative;
+  border-top-right-radius: calc(45px / 2);
+  border-bottom-right-radius: calc(45px / 2);
+}
+
+.side-navigation ul li:first-child {
+  margin-top: calc(35px - ((45px - 18px) / 2));
+}
+.side-navigation ul li:last-child {
+  margin-bottom: calc(35px - ((45px - 18px) / 2));
+}
+
+.side-navigation ul:first-of-type li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  left: calc(35px + (21px / 2) - 3px); /* margin-left + (Icon / 2) + häfte des Kreises */
+  transform: translateY(-50%);
+  background-color: #B3B4B9;
+  border-radius: 50%;
+}
+
+.side-navigation ul li i {
+  font-size: 21px;
+  color: #B3B4B9;
+}
+
+.side-navigation ul li a {
+  font-weight: 300;
+  color: #B3B4B9;
+  text-decoration: none;
+  margin-left: 25px;
+}
+
+.side-navigation ul:first-of-type li a {
+  margin-left: calc(21px + 25px); /* Icon + margin-left */
+}
+
+/* Derzeitige Seite */
+.side-navigation ul .selected {
+  background-color: #E8F2FE;
+}
+
+.side-navigation ul:first-of-type .selected::before {
+  background-color: #2D8EFF;
+}
+
+.side-navigation ul .selected .fas {
+  color: #2D8EFF;
+}
+
+.side-navigation ul .selected a {
+  color: #2D8EFF;
+}
+
+.side-navigation .log-out {
+  font-weight: 300;
+  color: #B3B4B9;
+  text-decoration: none;
+  margin-left: 35px;
+  position: absolute;
+  bottom: 50px;
+}
+.replacing-content {
+  height: calc(100% - 65px);
+}
+
+/* Offene Zeiterfassungen anzeigen */
+.replacing-content .content:nth-child(n+2) {
+  display: none;
+}
+
+.content {
+  overflow-x: hidden; /* Stretch */
+  height: 100%;
+  padding-left: 60px;
+  display: grid;
+  grid-template-rows: min-content min-content auto;
+}
+
+.export {
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.content .heading {
+  padding: 50px 0;
+  border-bottom: 1px solid #CCC;
+}
+
+.content .heading .helper {
+  display: flex;
+  align-items: center;
+}
+
+.content .heading .cancel {
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #B3B4B9;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.content .heading h2 {
+  height: 38px;
+  padding: 0 25px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  color: #2D8EFF;
+  background-color: #E8F2FE;
+  border-radius: 15px;
+}
+
+.content .message {
+  height: 45px;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  margin: 25px 50px 0 0;
+  padding: 0 25px;
+  border-radius: 8px;
+  background-color: #48C64D;
+  color: #fff;
+}
+
+form .error-input {
+  width: 400px;
+}
+
+form .manual-input .error-input {
+  width: 350px;
+}
+
+.user p {
+  margin: 50px 50px 100px 0;
+  border: 1px solid #000;
+}
+
+form .section:not(:first-of-type) {
+  margin-top: 50px;
+}
+
+form {
+  width: 65%;
+}
+
+form .section h3 {
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+form .permission label, form .task label {
+  height: 45px;
+  padding: 0 25px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #E0E6EB;
+  border-radius: 8px;
+  margin: 12.5px 25px 12.5px 0;
+}
+
+form .permission label:last-of-type, form .task label:last-of-type {
+  margin-right: 0;
+}
+
+form .task {
+  font-size: 0; /* HTML-Space entfernen */
+}
+
+form .task h3 {
+  margin-bottom: calc(15px - 12.5px);
+}
+
+form .task label:last-of-type {
+  border-style: dashed;
+}
+
+form .task .manual-input {
+  margin: calc(25px - 12.5px) 0 0 50px;
+  padding-bottom: 12.5px;
+  display: none;
+  flex-direction: column;
+}
+
+form .task .manual-input h3 {
+  margin-bottom: 15px;
+}
+
+form .task .manual-input input {
+  width: 350px;
+}
+
+form .task .manual-input input:last-of-type {
+  margin-top: 25px;
+}
+
+form .locations {
+  margin-top: calc(50px - 12.5px);
+}
+
+form .form-of-address label {
+  display: inline-flex;
+}
+
+.user .form-of-address label {
+  margin-top: calc(50px - 12px);
+}
+
+form .form-of-address label, .time-record .locations label, .time-record .start-time label, .time-record .end-time label {
+  position: relative;
+  padding: 1px 0 1px calc(20px + 25px); /* Radiobutton + padding */
+}
+
+form .form-of-address label:nth-of-type(2) {
+  margin-left: 50px;
+}
+
+form .form-of-address label::before, .time-record .locations label::before, .time-record .start-time label::before, .time-record .end-time label::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 1px solid #E0E0E0;
+}
+
+.user .personal-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.e-mail input, .date-of-joining input, .no input {
+  width: 100%;
+}
+
+form .locations label, .settings label {
+  display: inline-flex;
+  align-items: center;
+}
+
+form .locations .flex:nth-of-type(n+2) {
+  margin-top: 15px;
+}
+
+form .locations label input, .settings label input {
+  margin-right: 25px;
+}
+
+.time-record .locations label, .time-record .start-time label, .time-record .end-time label {
+  display: table;
+  margin-top: 15px;
+}
+
+.date input, .time-record .start-time input:last-of-type, .time-record .end-time input:last-of-type {
+  width: 400px;
+}
+
+.time-record .start-time input:last-of-type, .time-record .end-time input:last-of-type {
+  margin-top: 25px;
+}
+
+[id^="permission-"]:checked + label[for^=permission-],
+[id^="task-"]:checked + label[for^="task-"] {
+  color: #fff;
+  background-color: #2D8EFF;
+  border-color: transparent;
+}
+
+[id$="ms"]:checked + label,
+[id$="mr"]:checked + label,
+[id="change-password"]:checked + span,
+[id^="location-"]:checked + label,
+[id^="locations-"]:checked + span,
+[id^="start-"]:checked + label,
+[id^="end-"]:checked + label {
+  color: #2D8EFF;
+}
+
+[id$="ms"]:checked + label::before,
+[id$="mr"]:checked + label::before,
+[id^="location-"]:checked + label::before,
+[id^="start-"]:checked + label::before,
+[id^="end-"]:checked + label::before {
+  border-color: #2D8EFF
+}
+
+[id$="ms"]:checked + label::after,
+[id$="mr"]:checked + label::after,
+[id^="location-"]:checked + label::after,
+[id^="start-"]:checked + label::after,
+[id^="end-"]:checked + label::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: #2D8EFF;
+}
+
+form #create, form #save {
+  width: 200px;
+  color: #fff;
+  margin: 100px 0 50px;
+  background-color: #2D8EFF;
+  border: none;
+}
+
+.filter {
+  padding: 45px 50px 45px 0;
+  display: flex;
+}
+
+.filter .dropdown {
+  width: 250px;
+}
+
+.filter .control {
+  margin: 0 50px 0 auto;
+  display: inherit;
+}
+
+.content .description {
+  margin: 50px 50px 50px 0;
+}
+
+.content .description h3 {
+  margin-bottom: 15px;
+}
+
+.settings .helper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings .helper .section {
+  margin-top: 0;
+}
+
+form input:disabled {
+  color: #B3B4B9;
+  -webkit-text-fill-color: #B3B4B9; /* Deaktivierte Eingabefelder (Safari) */
+}
+
+.settings .section:not(.personal-details):not(.debug):not(.change-password) input {
+  width: 100%;
+}
+
+.change-password {
+  width: 100% !important;
+}
+
+form .personal-details > *, form .helper > *, form .date-of-joining, form .no {
+  width: calc(50% - 50px);
+}
+
+.settings .locations span {
+  height: 45px;
+  color: #2D8EFF;
+  background-color: #E8F2FE;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 0 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 12.5px 25px 12.5px 0;
+}
+
+.settings .no {
+  margin-top: calc(50px - 12.5px) !important;
+}
+
+.settings .change-password {
+  margin-top: 0 !important;
+}
+
+.settings .locations h3 {
+  margin-bottom: calc(15px - 12.5px);
+}
+
+.settings .locations {
+  font-size: 0;
+}
+
+.settings .debug > * {
+  width: calc(50% - 25px);
+}
+
+.settings .personal-details, .settings .debug {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.settings .personal-details, form .personal-details input, .settings .debug input {
+  width: 100%;
+}
+
+.settings h3:first {
+  margin: 50px 50px 0 0;
+}
+
+.settings p {
+  margin: 15px 50px 100px 0;
+}
+
+.settings .change-password h3, .settings .change-password input:not([type="checkbox"]) {
+  width: calc(50% - 50px);
+}
+
+ .settings .change-password label {
+   margin-top: 35px;
+ }
+
+.settings .change-password h3 {
+  margin-top: 35px;
+}
+
+.settings .change-password h3 {
+  display: none;
+}
+
+.settings .change-password h3:first-of-type {
+  margin-top: 100px;
+}
+
+.filter .control button:not(:first-child):not(:nth-last-child(2)) {
+  margin-left: 25px;
+}
+
+.filter .control button:nth-last-child(-n+2):not(:nth-child(-n+2)) {
+  display: none;
+}
+
+.filter .filter-options {
+  color: #2D8EFF;
+  border: 1px solid #2D8EFF;
+}
+
+.fa-align-left {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+/* Tabelle */
+.enable-scroll {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.enable-scroll a {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 50px;
+  bottom: 25px;
+  background-color: #2D8EFF;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.enable-scroll a .fa-plus {
+  color: #fff;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table:last-child {
+  display: flex;
+  overflow: auto;
+  flex: 1; /* Höhe auf 100 % strecken */
+}
+
+table tr {
+  border-top: 1px solid #CCC;
+}
+
+table .checkbox {
+  min-width: 45px;
+}
+
+table .task, table .member {
+  min-width: 280px;
+}
+
+table .first-name, table .last-name, table .task-no, table .date, table .last-modified, table .date-of-joining {
+  min-width: 215px;
+}
+
+table .permission, table .no {
+  min-width: 225px;
+}
+
+table .total, table .sum, table .created {
+  min-width: 150px;
+}
+
+table .start-time, table .end-time, table .username {
+  min-width: 180px;
+}
+
+table .comment, table .e-mail {
+  min-width: 400px;
+}
+
+table span {
+  font-weight: 300;
+  display: flex;
+}
+
+table th {
+  color: #B3B4B9;
+}
+
+table th:first-child {
+  padding: 25px 25px 25px 0;
+}
+
+table th span, table td span {
+  margin-left: 25px;
+}
+
+table td span {
+  margin: 20px 0 20px 25px;
+}
+
+table td .error-input {
+  width: calc(100% - 50px);
+  margin: -5px 0 20px 20px !important;
+}
+
+table th:not(:last-child) span {
+  height: 45px;
+  align-items: center;
+  border-right: 1px solid #CCC;
+}
+
+table td:not(:first-child), table .align-fix {
+  vertical-align: top;
+}
+
+table .align-fix > *:first-child {
+  margin-top: calc(20px + (25px / 2));
+}
+
+table td:not(:first-child) input {
+  width: calc(100% - 50px);
+  display: block;
+  margin: 20px 25px;
+}
+
+table td:not(:first-child) input:disabled {
+  height: auto !important;
+  padding: 0 !important;
+  border: none !important;
+  cursor: text;
+}
